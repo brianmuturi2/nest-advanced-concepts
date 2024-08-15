@@ -32,13 +32,13 @@ export class IntervalScheduler implements OnApplicationBootstrap, OnApplicationS
                 if (interval === undefined) {
                     return;
                 }
-                const intervalRef = setInterval(() => instance[methodKey](), interval)
-                this.intervals.push(intervalRef);
+                //const intervalRef = setInterval(() => instance[methodKey](), interval)
+                //this.intervals.push(intervalRef);
             })
         })
     }
 
     onApplicationShutdown(signal?: string) {
-        this.intervals.forEach(intervalRef => clearInterval(intervalRef))
+        this.intervals.forEach(intervalRef => clearInterval(intervalRef as unknown as number))
     }
 }
